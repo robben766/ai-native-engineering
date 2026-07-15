@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470">
+  <style> text{font-family:"Helvetica Neue",Helvetica,Arial,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;} </style>
+  <defs>
+    <marker id="at" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#0C8F88"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#C2504B"/></marker>
+  </defs>
+  <rect width="1000" height="470" fill="#FFFFFF"/>
+  <text x="500" y="40" text-anchor="middle" fill="#0F1721" font-size="18" font-weight="800">提测验证流水线 · 七环</text>
+  <rect x="30" y="92" width="150" height="54" rx="9" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="1.5"/>
+  <text x="105.0" y="124.0" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">研发提测</text>
+  <rect x="210" y="92" width="150" height="54" rx="9" fill="#FFFFFF" stroke="#D8DEE5" stroke-width="1.5"/>
+  <text x="285.0" y="124.0" text-anchor="middle" fill="#0F1721" font-size="15" font-weight="700">变更分析</text>
+  <rect x="390" y="92" width="150" height="54" rx="9" fill="#FFFFFF" stroke="#D8DEE5" stroke-width="1.5"/>
+  <text x="465.0" y="124.0" text-anchor="middle" fill="#0F1721" font-size="15" font-weight="700">用例生成</text>
+  <rect x="570" y="92" width="150" height="54" rx="9" fill="#FFFFFF" stroke="#D8DEE5" stroke-width="1.5"/>
+  <text x="645.0" y="124.0" text-anchor="middle" fill="#0F1721" font-size="15" font-weight="700">代码评审</text>
+  <path d="M825,79 L895,119 L825,159 L755,119 Z" fill="#EAF6F5" stroke="#0C8F88" stroke-width="1.8"/>
+  <text x="825" y="124" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">质量门禁</text>
+  <rect x="570" y="282" width="150" height="54" rx="9" fill="#FFFFFF" stroke="#D8DEE5" stroke-width="1.5"/>
+  <text x="645.0" y="314.0" text-anchor="middle" fill="#0F1721" font-size="15" font-weight="700">部署</text>
+  <rect x="390" y="282" width="150" height="54" rx="9" fill="#FFFFFF" stroke="#D8DEE5" stroke-width="1.5"/>
+  <text x="465.0" y="314.0" text-anchor="middle" fill="#0F1721" font-size="15" font-weight="700">E2E 验证</text>
+  <rect x="210" y="282" width="150" height="54" rx="9" fill="#FFFFFF" stroke="#D8DEE5" stroke-width="1.5"/>
+  <text x="285.0" y="314.0" text-anchor="middle" fill="#0F1721" font-size="15" font-weight="700">度量落库</text>
+  <rect x="30" y="282" width="150" height="54" rx="9" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="1.5"/>
+  <text x="105.0" y="314.0" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">测试结论</text>
+  <line x1="180" y1="119" x2="207" y2="119" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <line x1="360" y1="119" x2="387" y2="119" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <line x1="540" y1="119" x2="567" y2="119" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <line x1="720" y1="119" x2="752" y2="119" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <path d="M825,159 V240 H645 V279" fill="none" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <rect x="835" y="188" width="46" height="18" rx="3" fill="#FFFFFF"/>
+  <text x="858" y="201" text-anchor="middle" fill="#0C8F88" font-size="12" font-weight="700">通过</text>
+  <line x1="570" y1="309" x2="543" y2="309" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <line x1="390" y1="309" x2="363" y2="309" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <line x1="210" y1="309" x2="183" y2="309" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <path d="M825,79 V58 H285 V88" fill="none" stroke="#C2504B" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+  <rect x="360" y="49" width="230" height="18" rx="3" fill="#FFFFFF"/>
+  <text x="475" y="62" text-anchor="middle" fill="#C2504B" font-size="12" font-weight="600">Blocker · 拦截回写 · 修复后重跑</text>
+  <line x1="40" y1="410" x2="70" y2="410" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <text x="78" y="414" fill="#6A7480" font-size="12">主流程（通过则继续）</text>
+  <line x1="300" y1="410" x2="330" y2="410" stroke="#C2504B" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+  <text x="338" y="414" fill="#6A7480" font-size="12">门禁拦截 → 修复后重跑</text>
+</svg>

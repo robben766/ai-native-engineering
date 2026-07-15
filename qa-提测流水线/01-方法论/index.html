@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>方法论 · 提测质量流水线</title>
+<style>
+ :root{
+ --paper:#F1F4F7; --surface:#FFFFFF; --surface-2:#E9EDF1; --ink:#0F1721; --body:#3B454F; --muted:#6A7480;
+ --line:#D8DEE5; --rail:#BFC8D1; --accent:#0C8F88;
+ --sans:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Hiragino Sans GB",sans-serif;
+ --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+ }
+ @media (prefers-color-scheme:dark){:root{
+ --paper:#0B1118; --surface:#121B25; --surface-2:#18242F; --ink:#ECF1F6; --body:#AEB9C5; --muted:#75808C;
+ --line:#233140; --rail:#33424F; --accent:#2ED6C6;
+ }}
+ :root[data-theme="light"]{--paper:#F1F4F7;--surface:#FFFFFF;--surface-2:#E9EDF1;--ink:#0F1721;--body:#3B454F;--muted:#6A7480;--line:#D8DEE5;--rail:#BFC8D1;--accent:#0C8F88}
+ :root[data-theme="dark"]{--paper:#0B1118;--surface:#121B25;--surface-2:#18242F;--ink:#ECF1F6;--body:#AEB9C5;--muted:#75808C;--line:#233140;--rail:#33424F;--accent:#2ED6C6}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--paper);color:var(--body);font-family:var(--sans);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+ .wrap{max-width:900px;margin:0 auto;padding:60px 28px 90px}
+ .home{font-family:var(--mono);font-size:12.5px;color:var(--accent);text-decoration:none}.home:hover{text-decoration:underline}
+ .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:18px 0 14px}
+ h1{color:var(--ink);font-size:clamp(28px,4.6vw,40px);font-weight:800;letter-spacing:-.025em;line-height:1.14;margin:0 0 16px}
+ .intro{font-size:clamp(15px,1.7vw,17px);color:var(--body);max-width:66ch;margin:0}
+ .order{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+ .order b{color:var(--accent);font-weight:700}
+ .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+ .card{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:22px;transition:border-color .16s,transform .16s}
+ .card:hover{border-color:var(--accent);transform:translateY(-2px)}
+ .card .n{font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:600}
+ .card h3{color:var(--ink);font-size:17px;font-weight:700;margin:6px 0 6px;letter-spacing:-.01em}
+ .card p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
+ .card.wide{grid-column:1/-1}
+ .foot{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+ .foot a{color:var(--accent)}
+ @media (max-width:640px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <a class="home" href="../">← 返回 Kit 总览</a>
+ <div class="eyebrow">提测质量流水线 · 方法论</div>
+ <h1>把 QA 提测这件事，讲清楚也算得清楚</h1>
+ <p class="intro">这一部分回答"为什么值得做、AI 能扎多深"。方法论是通用的、不含任何具体项目的数据：先看清研发全周期里 AI 的真实边界，再看它落到七环里的框架。</p>
+ <div class="order">阅读顺序：<b>独立深度地图</b> → <b>研发周期框架</b></div>
+
+ <div class="cards">
+ <a class="card wide" href="track-2-突破版/1-对外框架/index.html">
+ <div class="n">01 · 方法论依据</div>
+ <h3>独立深度地图</h3>
+ <p>不依赖任何产品的独立分析：传统 QA 十三环，AI 各能扎多深、被什么挡住。核心结论是没有一环能完全无人化，深度由三个变量决定——可机械化、判准可得、可硬信号验证。这一份是整套方法论的锚。</p>
+ </a>
+ <a class="card wide" href="研发周期框架.md">
+ <div class="n">02 · 落地框架</div>
+ <h3>研发周期框架</h3>
+ <p>把深度判断落到研发全周期七环：每环传统怎么做、AI 能做什么、做不到什么，加"要不要做 UI/接口自动化""上线怎么分层回归"的通用结论。不含具体数字。</p>
+ </a>
+ </div>
+
+ <div class="foot">
+ 方法论是上层。落地物料在 <a href="../02-引擎/">02-引擎</a> / <a href="../03-经验层-模板/">03-经验层-模板</a> / <a href="../04-工具/">04-工具</a>，落地步骤见 <a href="../落地手册.md">落地手册</a>。带真实数据的实现示例属内部实现，不在本层。
+ </div>
+</div>
+</body>
+</html>

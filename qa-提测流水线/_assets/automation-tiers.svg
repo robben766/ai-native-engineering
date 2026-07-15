@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430">
+  <style> text{font-family:"Helvetica Neue",Helvetica,Arial,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;} </style>
+  <defs>
+    <marker id="at" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#0C8F88"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#C2504B"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#4A6FA5"/></marker>
+    <marker id="am" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#6A7480"/></marker>
+  </defs>
+  <rect width="1000" height="430" fill="#FFFFFF"/>
+  <text x="500.0" y="40" text-anchor="middle" fill="#0F1721" font-size="18" font-weight="800">UI / 接口自动化 · 按判准是否稳定可得分三类</text>
+  <rect x="60.0" y="80" width="296" height="300" rx="12" fill="#FFFFFF" stroke="#9BD3CE" stroke-width="1.6"/>
+  <rect x="60.0" y="80" width="296" height="54" rx="12" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="0"/>
+  <rect x="60.0" y="110" width="296" height="24" fill="#EAF6F5"/>
+  <text x="82.0" y="114" text-anchor="start" fill="#0F1721" font-size="16" font-weight="800">接口自动化</text>
+  <rect x="248.0" y="95" width="90" height="26" rx="13" fill="#0C8F88" stroke="#0C8F88" stroke-width="0"/>
+  <text x="293.0" y="113" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="800">✓ 建，优先</text>
+  <circle cx="86.0" cy="168" r="3" fill="#0C8F88"/>
+  <text x="100.0" y="172" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">判准明确（契约）、稳定</text>
+  <circle cx="86.0" cy="202" r="3" fill="#0C8F88"/>
+  <text x="100.0" y="206" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">维护成本低</text>
+  <circle cx="86.0" cy="236" r="3" fill="#0C8F88"/>
+  <text x="100.0" y="240" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">优先覆盖缺陷最密集的核心模块</text>
+  <circle cx="86.0" cy="270" r="3" fill="#0C8F88"/>
+  <text x="100.0" y="274" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">沉淀成可重复跑的回归资产</text>
+  <rect x="352.0" y="80" width="296" height="300" rx="12" fill="#FFFFFF" stroke="#E6CE9C" stroke-width="1.6"/>
+  <rect x="352.0" y="80" width="296" height="54" rx="12" fill="#FAF2E2" stroke="#E6CE9C" stroke-width="0"/>
+  <rect x="352.0" y="110" width="296" height="24" fill="#FAF2E2"/>
+  <text x="374.0" y="114" text-anchor="start" fill="#0F1721" font-size="16" font-weight="800">UI 自动化</text>
+  <rect x="495.0" y="95" width="135" height="26" rx="13" fill="#C08A2E" stroke="#C08A2E" stroke-width="0"/>
+  <text x="562.5" y="113" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="800">~ 只做主链路冒烟</text>
+  <circle cx="378.0" cy="168" r="3" fill="#C08A2E"/>
+  <text x="392.0" y="172" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">UI 变动频繁、判准弱</text>
+  <circle cx="378.0" cy="202" r="3" fill="#C08A2E"/>
+  <text x="392.0" y="206" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">广覆盖维护成本吃掉收益</text>
+  <circle cx="378.0" cy="236" r="3" fill="#C08A2E"/>
+  <text x="392.0" y="240" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">只对少数关键主流程做冒烟</text>
+  <rect x="644.0" y="80" width="296" height="300" rx="12" fill="#FFFFFF" stroke="#E7B7B3" stroke-width="1.6"/>
+  <rect x="644.0" y="80" width="296" height="54" rx="12" fill="#FBECEB" stroke="#E7B7B3" stroke-width="0"/>
+  <rect x="644.0" y="110" width="296" height="24" fill="#FBECEB"/>
+  <text x="666.0" y="114" text-anchor="start" fill="#0F1721" font-size="16" font-weight="800">全量 UI 脚本</text>
+  <rect x="862.0" y="95" width="60" height="26" rx="13" fill="#C2504B" stroke="#C2504B" stroke-width="0"/>
+  <text x="892.0" y="113" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="800">✕ 不建</text>
+  <circle cx="670.0" cy="168" r="3" fill="#C2504B"/>
+  <text x="684.0" y="172" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">维护成本随功能线性增长</text>
+  <circle cx="670.0" cy="202" r="3" fill="#C2504B"/>
+  <text x="684.0" y="206" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">收益递减</text>
+  <circle cx="670.0" cy="236" r="3" fill="#C2504B"/>
+  <text x="684.0" y="240" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="600">最终无人维护、集体失效</text>
+  <text x="500.0" y="402" text-anchor="middle" fill="#6A7480" font-size="13" font-weight="600">一句话：判准稳→值得自动化；判准弱→自动化的维护成本会反噬</text>
+</svg>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 原生工程实践</title>
+<style>
+  :root{
+    --paper:#F1F4F7; --surface:#FFFFFF; --surface-2:#E9EDF1; --ink:#0F1721; --body:#3B454F; --muted:#6A7480;
+    --line:#D8DEE5; --rail:#BFC8D1; --accent:#0C8F88; --accent-2:#0A6E76; --accent-soft:rgba(12,143,136,.10);
+    --qa:#0C8F88; --dev:#4A6FA5; --soon:#8A94A0;
+    --sans:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Hiragino Sans GB",sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --paper:#0B1118; --surface:#121B25; --surface-2:#18242F; --ink:#ECF1F6; --body:#AEB9C5; --muted:#75808C;
+    --line:#233140; --rail:#33424F; --accent:#2ED6C6; --accent-2:#4FE3D4; --accent-soft:rgba(46,214,198,.12);
+    --qa:#2ED6C6; --dev:#7DA3D9; --soon:#5E6976;
+  }}
+  :root[data-theme="light"]{--paper:#F1F4F7;--surface:#FFFFFF;--surface-2:#E9EDF1;--ink:#0F1721;--body:#3B454F;--muted:#6A7480;--line:#D8DEE5;--rail:#BFC8D1;--accent:#0C8F88;--accent-2:#0A6E76;--accent-soft:rgba(12,143,136,.10);--qa:#0C8F88;--dev:#4A6FA5;--soon:#8A94A0}
+  :root[data-theme="dark"]{--paper:#0B1118;--surface:#121B25;--surface-2:#18242F;--ink:#ECF1F6;--body:#AEB9C5;--muted:#75808C;--line:#233140;--rail:#33424F;--accent:#2ED6C6;--accent-2:#4FE3D4;--accent-soft:rgba(46,214,198,.12);--qa:#2ED6C6;--dev:#7DA3D9;--soon:#5E6976}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--body);font-family:var(--sans);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:66px 28px 100px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--accent);display:inline-block}
+  h1{color:var(--ink);font-size:clamp(30px,5.2vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:0 0 18px;text-wrap:balance}
+  h1 .en{display:block;font-family:var(--mono);font-size:clamp(13px,1.7vw,16px);font-weight:600;letter-spacing:.02em;color:var(--muted);margin-top:12px}
+  .lead{font-size:clamp(16px,1.9vw,19px);color:var(--body);max-width:70ch;margin:0}
+  .lead b{color:var(--ink)}
+
+  .sec{margin-top:56px}
+  .sec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .sec-h .t{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .sec-h h2{color:var(--ink);font-size:19px;font-weight:800;margin:0}
+
+  .who{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .who .c{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 18px 16px}
+  .who .c .r{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  .who .c h3{color:var(--ink);font-size:15.5px;font-weight:700;margin:0 0 4px}
+  .who .c p{margin:0;font-size:13px;color:var(--muted);line-height:1.5}
+
+  .mods{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .mod{position:relative;display:block;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;transition:border-color .18s,transform .18s,box-shadow .18s}
+  .mod:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+  .mod .top{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+  .mod .tag{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;padding:3px 8px;border-radius:2px;text-transform:uppercase;border:1px solid currentColor}
+  .mod.qa .tag{color:var(--qa)} .mod.dev .tag{color:var(--soon)}
+  .mod .st{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .mod.qa .st{color:var(--accent)}
+  .mod h3{color:var(--ink);font-size:18px;font-weight:800;margin:0 0 6px;letter-spacing:-.01em}
+  .mod p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
+  .mod .go{margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:600}
+  .mod.dev{opacity:.72;cursor:default}.mod.dev:hover{transform:none;border-color:var(--line);box-shadow:none}
+
+  .quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .quick a{font-family:var(--mono);font-size:12.5px;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:8px 14px;transition:border-color .16s}
+  .quick a:hover{border-color:var(--accent)}
+  .note{margin-top:52px;font-size:12.5px;color:var(--muted);font-family:var(--mono);border-top:1px dashed var(--line);padding-top:18px;line-height:1.8}
+  .note b{color:var(--body)}
+  @media (max-width:720px){ .who,.mods{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">AI-Native Engineering</div>
+  <h1>AI 原生工程实践<span class="en">用 AI 把工程质量的做法，沉淀成能跨团队复制的方法、引擎与模板</span></h1>
+  <p class="lead">同一件事分三层讲清：<b>为什么值得做</b>（AI 在工程各环节能扎多深、边界在哪）、<b>怎么做</b>（一套可搬的引擎 + 经验模板 + 工具）、<b>怎么落到你的团队</b>（照手册拷进项目就能跑）。目标是让理论、方法、工具在不同团队、不同公司都能落地，而不是停在一次分享。</p>
+
+  <!-- 给谁看 -->
+  <div class="sec">
+    <div class="sec-h"><span class="t">给谁看</span><h2>不同角色，各取所需</h2></div>
+    <div class="who">
+      <div class="c"><div class="r">负责人 / PM</div><h3>看方法论</h3><p>AI 在研发全周期能扎多深、边界在哪、价值怎么证。不用懂代码就能读。</p></div>
+      <div class="c"><div class="r">研发</div><h3>看引擎与规则</h3><p>变更分析、代码评审、质量门禁、评审检查清单——这些本就是研发侧的活。</p></div>
+      <div class="c"><div class="r">QA</div><h3>看全流程</h3><p>用例生成、E2E 验证、度量与逃逸率，一条命令跑完提测验证。</p></div>
+    </div>
+  </div>
+
+  <!-- 模块 -->
+  <div class="sec">
+    <div class="sec-h"><span class="t">模块</span><h2>从质量提测起步，逐步铺开</h2></div>
+    <div class="mods">
+      <a class="mod qa" href="qa-提测流水线/查看.html">
+        <div class="top"><span class="tag">质量 · QA+研发</span><span class="st">● 已就绪</span></div>
+        <h3>提测验证流水线</h3>
+        <p>研发提测到测试通过之间那段固定工作，用 AI 编排：变更分析 → 用例 → 代码评审 → 门禁 → 部署 → E2E → 度量。含独立方法论、可搬引擎、经验模板、度量工具、落地手册。</p>
+        <div class="go">进入模块 →</div>
+      </a>
+      <div class="mod dev">
+        <div class="top"><span class="tag">研发提效</span><span class="st">规划中</span></div>
+        <h3>研发相关（后续）</h3>
+        <p>同样的思路延伸到研发侧的更多环节。结构与本模块平行，方法论与引擎复用，经验层各自积累。</p>
+        <div class="go" style="color:var(--muted)">敬请期待</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 快速直达 -->
+  <div class="sec">
+    <div class="sec-h"><span class="t">快速直达</span><h2>想先看某一块</h2></div>
+    <div class="quick">
+      <a href="qa-提测流水线/01-方法论/track-2-突破版/1-对外框架/index.html">独立深度地图（方法论核心）</a>
+      <a href="qa-提测流水线/01-方法论/index.html">方法论入口</a>
+      <a href="qa-提测流水线/查看.html?f=落地手册.md">落地手册</a>
+      <a href="qa-提测流水线/查看.html">文档查看器（所有 md）</a>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>说明：</b>方法论 / 引擎 / 经验层模板 / 工具是通用可复用层——拷进你自己的项目、按真实提测一次次把经验层填满，工具就越用越准。 &nbsp;·&nbsp; 深浅色随系统。
+  </div>
+</div>
+</body>
+</html>

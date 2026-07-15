@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" width="1000" height="420">
+  <style> text{font-family:"Helvetica Neue",Helvetica,Arial,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;} </style>
+  <defs>
+    <marker id="at" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#0C8F88"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#C2504B"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#4A6FA5"/></marker>
+    <marker id="am" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#6A7480"/></marker>
+  </defs>
+  <rect width="1000" height="420" fill="#FFFFFF"/>
+  <text x="500.0" y="40" text-anchor="middle" fill="#0F1721" font-size="18" font-weight="800">质量门禁 · 确定性裁决（查已签核严重度基线）</text>
+  <rect x="40" y="170" width="150" height="54" rx="9" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="1.5"/>
+  <text x="115" y="197" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">评审发现</text>
+  <text x="115" y="214" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">分级清单</text>
+  <path d="M330,145 L410,197 L330,249 L250,197 Z" fill="#FFFFFF" stroke="#0F1721" stroke-width="1.6"/>
+  <text x="330" y="193" text-anchor="middle" fill="#0F1721" font-size="14" font-weight="800">Blocker</text>
+  <text x="330" y="213" text-anchor="middle" fill="#0F1721" font-size="13" font-weight="700">> 0 ?</text>
+  <path d="M600,145 L680,197 L600,249 L520,197 Z" fill="#FFFFFF" stroke="#0F1721" stroke-width="1.6"/>
+  <text x="600" y="193" text-anchor="middle" fill="#0F1721" font-size="14" font-weight="800">仅 Major</text>
+  <text x="600" y="213" text-anchor="middle" fill="#0F1721" font-size="13" font-weight="700">> 0 ?</text>
+  <rect x="830" y="60" width="190" height="54" rx="9" fill="#FBECEB" stroke="#E7B7B3" stroke-width="1.6"/>
+  <text x="925" y="85" text-anchor="middle" fill="#C2504B" font-size="15" font-weight="800">不通过</text>
+  <text x="925" y="102" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">拦截·停·等修复</text>
+  <rect x="830" y="170" width="190" height="54" rx="9" fill="#FAF2E2" stroke="#E6CE9C" stroke-width="1.6"/>
+  <text x="925" y="195" text-anchor="middle" fill="#C08A2E" font-size="15" font-weight="800">有风险</text>
+  <text x="925" y="212" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">默认不通过·可覆盖</text>
+  <rect x="830" y="300" width="190" height="54" rx="9" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="1.6"/>
+  <text x="925" y="325" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">通过</text>
+  <text x="925" y="342" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">放行</text>
+  <line x1="190" y1="197" x2="248" y2="197" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <line x1="410" y1="197" x2="518" y2="197" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <text x="464" y="188" text-anchor="middle" fill="#6A7480" font-size="12" font-weight="700">否</text>
+  <path d="M330,145 V87 H830" fill="none" stroke="#C2504B" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="336" y="118" width="34" height="18" rx="3" fill="#FFFFFF"/>
+  <text x="353" y="131" text-anchor="middle" fill="#C2504B" font-size="12" font-weight="700">是</text>
+  <line x1="680" y1="197" x2="828" y2="197" stroke="#C08A2E" stroke-width="1.6" marker-end="url(#am)"/>
+  <rect x="720" y="188" width="28" height="18" rx="3" fill="#FFFFFF"/>
+  <text x="734" y="201" text-anchor="middle" fill="#C08A2E" font-size="12" font-weight="700">是</text>
+  <path d="M600,249 V327 H828" fill="none" stroke="#0C8F88" stroke-width="1.6" marker-end="url(#at)"/>
+  <rect x="606" y="258" width="28" height="18" rx="3" fill="#FFFFFF"/>
+  <text x="620" y="271" text-anchor="middle" fill="#0C8F88" font-size="12" font-weight="700">否</text>
+  <text x="500.0" y="398" text-anchor="middle" fill="#6A7480" font-size="13" font-weight="600">严重度不逐次主观判断，查签核基线；任何裁决 QA 可覆盖，覆盖记理由</text>
+</svg>

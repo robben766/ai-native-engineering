@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500">
+  <style> text{font-family:"Helvetica Neue",Helvetica,Arial,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;} </style>
+  <defs>
+    <marker id="at" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#0C8F88"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#C2504B"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#4A6FA5"/></marker>
+    <marker id="am" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#6A7480"/></marker>
+  </defs>
+  <rect width="1000" height="500" fill="#FFFFFF"/>
+  <text x="500.0" y="40" text-anchor="middle" fill="#0F1721" font-size="18" font-weight="800">研发周期七环 · AI 能扎多深</text>
+  <rect x="70.0" y="200" width="96" height="180" rx="7" fill="#0C8F88" stroke="#0C8F88" stroke-width="0"/>
+  <text x="118.0" y="190" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="700">强增强</text>
+  <text x="118.0" y="404" text-anchor="middle" fill="#0F1721" font-size="13" font-weight="700">需求质量</text>
+  <text x="118.0" y="422" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">1</text>
+  <rect x="197.33333333333331" y="170" width="96" height="210" rx="7" fill="#0C8F88" stroke="#0C8F88" stroke-width="0"/>
+  <text x="245.33333333333331" y="160" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="700">强增强·最深</text>
+  <text x="245.33333333333331" y="144" text-anchor="middle" fill="#C08A2E" font-size="14" font-weight="800">★</text>
+  <text x="245.33333333333331" y="404" text-anchor="middle" fill="#0F1721" font-size="13" font-weight="700">用例设计</text>
+  <text x="245.33333333333331" y="422" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">2</text>
+  <rect x="324.66666666666663" y="200" width="96" height="180" rx="7" fill="#0C8F88" stroke="#0C8F88" stroke-width="0"/>
+  <text x="372.66666666666663" y="190" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="700">强增强</text>
+  <text x="372.66666666666663" y="404" text-anchor="middle" fill="#0F1721" font-size="13" font-weight="700">静态把关</text>
+  <text x="372.66666666666663" y="422" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">3</text>
+  <rect x="452.0" y="265" width="96" height="115" rx="7" fill="#6FBDB8" stroke="#6FBDB8" stroke-width="0"/>
+  <text x="500.0" y="255" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="700">中</text>
+  <text x="500.0" y="404" text-anchor="middle" fill="#0F1721" font-size="13" font-weight="700">测试执行</text>
+  <text x="500.0" y="422" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">4</text>
+  <rect x="579.3333333333333" y="265" width="96" height="115" rx="7" fill="#6FBDB8" stroke="#6FBDB8" stroke-width="0"/>
+  <text x="627.3333333333333" y="255" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="700">中</text>
+  <text x="627.3333333333333" y="404" text-anchor="middle" fill="#0F1721" font-size="13" font-weight="700">回归</text>
+  <text x="627.3333333333333" y="422" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">5</text>
+  <rect x="706.6666666666666" y="320" width="96" height="60" rx="7" fill="#C9E6E3" stroke="#C9E6E3" stroke-width="0"/>
+  <text x="754.6666666666666" y="310" text-anchor="middle" fill="#6A7480" font-size="12" font-weight="700">辅助</text>
+  <text x="754.6666666666666" y="404" text-anchor="middle" fill="#0F1721" font-size="13" font-weight="700">上线准入</text>
+  <text x="754.6666666666666" y="422" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">6</text>
+  <rect x="834.0" y="200" width="96" height="180" rx="7" fill="#0C8F88" stroke="#0C8F88" stroke-width="0"/>
+  <text x="882.0" y="190" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="700">强增强</text>
+  <text x="882.0" y="404" text-anchor="middle" fill="#0F1721" font-size="13" font-weight="700">线上质量</text>
+  <text x="882.0" y="422" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">7</text>
+  <line x1="56" y1="380" x2="944" y2="380" stroke="#D8DEE5" stroke-width="1.5"/>
+  <text x="500.0" y="472" text-anchor="middle" fill="#6A7480" font-size="13" font-weight="600">越可机械化、判准可得、可硬信号验证 → AI 扎得越深；越靠担责与判准缺失 → AI 越浅、人越不可替代</text>
+</svg>

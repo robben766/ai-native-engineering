@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>传统 QA × AI · 一张独立的深度地图</title>
+<style>
+ :root{
+ --paper:#F1F4F7; --surface:#FFFFFF; --surface-2:#E9EDF1;
+ --ink:#0F1721; --body:#3B454F; --muted:#6A7480;
+ --line:#D8DEE5; --rail:#BFC8D1;
+ --accent:#0C8F88; --accent-2:#0A6E76; --accent-soft:rgba(12,143,136,.10);
+ --strong:#0C8F88; --strong-soft:rgba(12,143,136,.14);
+ --assist:#C9820B; --assist-soft:rgba(201,130,11,.14);
+ --none:#C0504D; --none-soft:rgba(192,80,77,.10);
+ --grid:#C9D1DA;
+ --sans:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Hiragino Sans GB",sans-serif;
+ --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+ --maxw:1120px;
+ }
+ @media (prefers-color-scheme:dark){
+ :root{
+ --paper:#0B1118; --surface:#121B25; --surface-2:#18242F; --ink:#ECF1F6; --body:#AEB9C5; --muted:#75808C;
+ --line:#233140; --rail:#33424F; --accent:#2ED6C6; --accent-2:#4FE3D4; --accent-soft:rgba(46,214,198,.13);
+ --strong:#2ED6C6; --strong-soft:rgba(46,214,198,.16);
+ --assist:#E7A53A; --assist-soft:rgba(231,165,58,.16);
+ --none:#E56A6A; --none-soft:rgba(229,106,106,.12);
+ --grid:#2A3A49;
+ }
+ }
+ :root[data-theme="light"]{
+ --paper:#F1F4F7; --surface:#FFFFFF; --surface-2:#E9EDF1; --ink:#0F1721; --body:#3B454F; --muted:#6A7480;
+ --line:#D8DEE5; --rail:#BFC8D1; --accent:#0C8F88; --accent-2:#0A6E76; --accent-soft:rgba(12,143,136,.10);
+ --strong:#0C8F88; --strong-soft:rgba(12,143,136,.14); --assist:#C9820B; --assist-soft:rgba(201,130,11,.14);
+ --none:#C0504D; --none-soft:rgba(192,80,77,.10); --grid:#C9D1DA;
+ }
+ :root[data-theme="dark"]{
+ --paper:#0B1118; --surface:#121B25; --surface-2:#18242F; --ink:#ECF1F6; --body:#AEB9C5; --muted:#75808C;
+ --line:#233140; --rail:#33424F; --accent:#2ED6C6; --accent-2:#4FE3D4; --accent-soft:rgba(46,214,198,.13);
+ --strong:#2ED6C6; --strong-soft:rgba(46,214,198,.16); --assist:#E7A53A; --assist-soft:rgba(231,165,58,.16);
+ --none:#E56A6A; --none-soft:rgba(229,106,106,.12); --grid:#2A3A49;
+ }
+
+ *{box-sizing:border-box}
+ html{scroll-behavior:smooth}
+ body{margin:0;background:var(--paper);color:var(--body);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;font-size:16px}
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+ section{padding:84px 0;border-top:1px solid var(--line)}
+
+ h1,h2,h3,h4{color:var(--ink);text-wrap:balance;margin:0}
+ .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;display:flex;align-items:center;gap:12px;margin-bottom:22px}
+ .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);display:inline-block}
+ .sec-num{font-family:var(--mono);color:var(--muted)}
+ h2{font-size:clamp(26px,3.6vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.14}
+ .lede{font-size:clamp(16px,1.7vw,19px);color:var(--body);max-width:66ch;margin-top:20px}
+ p{margin:14px 0}
+
+ /* hero */
+ .hero{padding:100px 0 72px}
+ .hero .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+ .hero .kicker b{color:var(--accent);font-weight:600}
+ .hero h1{font-size:clamp(31px,5.2vw,58px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+ .hero h1 .hl{color:var(--accent)}
+ .hero .sub{font-size:clamp(16px,1.9vw,20px);max-width:64ch;margin-top:26px;color:var(--body)}
+ .headline{margin-top:34px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--none);border-radius:6px;padding:20px 24px;max-width:74ch}
+ .headline .k{font-family:var(--mono);font-size:34px;font-weight:700;color:var(--none);line-height:1;white-space:nowrap}
+ .headline p{margin:0;font-size:14.5px;color:var(--body)}
+ .headline b{color:var(--ink)}
+
+ /* method chips */
+ .method{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+ .mc{font-family:var(--mono);font-size:12px;padding:8px 13px;border-radius:2px;border:1px solid var(--line);background:var(--surface);color:var(--body)}
+ .mc b{color:var(--accent)}
+
+ /* principle */
+ .vars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+ .v{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:6px;padding:22px}
+ .v .n{font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.06em}
+ .v h3{font-size:17px;font-weight:700;margin:8px 0 8px}
+ .v p{margin:0;font-size:13.5px;color:var(--muted)}
+ .formula{margin-top:30px;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:20px 24px;font-family:var(--mono);font-size:clamp(13px,1.6vw,15.5px);color:var(--ink);line-height:1.8;overflow-x:auto}
+ .formula b.up{color:var(--strong)} .formula b.dn{color:var(--assist)}
+
+ /* depth chart */
+ .legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:8px;font-family:var(--mono);font-size:12px}
+ .legend span{display:inline-flex;align-items:center;gap:8px;color:var(--body)}
+ .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+ .sw.s{background:var(--strong)} .sw.a{background:var(--assist)} .sw.n{background:var(--none)}
+ .chart{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px 24px 18px}
+ .caxis{position:relative;height:20px;margin-left:190px;margin-bottom:6px}
+ .caxis .tick{position:absolute;top:0;transform:translateX(-50%);font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+ .row{display:grid;grid-template-columns:190px 1fr;align-items:center;gap:0;padding:7px 0}
+ .row .lab{font-size:13.5px;color:var(--ink);font-weight:600;padding-right:14px;line-height:1.25}
+ .row .lab small{display:block;color:var(--muted);font-weight:400;font-size:11px;font-family:var(--mono)}
+ .track{position:relative;height:22px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+ .gl{position:absolute;top:0;bottom:0;width:1px;background:var(--grid)}
+ .gl.hi{background:var(--none);width:2px;opacity:.7}
+ .seg{position:absolute;top:3px;bottom:3px;border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:7px}
+ .seg.s{background:var(--strong-soft);border:1px solid var(--strong)}
+ .seg.a{background:var(--assist-soft);border:1px solid var(--assist)}
+ .seg span{font-family:var(--mono);font-size:10.5px;font-weight:600}
+ .seg.s span{color:var(--strong)} .seg.a span{color:var(--assist)}
+ .hiline-lab{margin-left:190px;margin-top:8px;font-family:var(--mono);font-size:11.5px;color:var(--none)}
+ .chart-note{margin-top:18px;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:14px}
+ .chart-note b{color:var(--none)}
+
+ /* surprises */
+ .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+ .card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:22px;border-left:3px solid var(--accent)}
+ .card h3{font-size:16px;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
+ .card p{font-size:13.5px;color:var(--muted);margin:0}
+ .card .eq{font-family:var(--mono);font-size:12.5px;color:var(--ink);background:var(--surface-2);border-radius:3px;padding:2px 7px}
+
+ .pull{margin:40px 0 6px;font-size:clamp(19px,2.5vw,27px);line-height:1.42;color:var(--ink);font-weight:700;letter-spacing:-.015em;max-width:32ch;border-left:3px solid var(--accent);padding-left:24px}
+ .pull span{color:var(--accent)}
+
+ /* verdict */
+ .verdict{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:30px 32px;margin-top:20px}
+ .verdict p{font-size:16px;color:var(--body);margin:0 0 14px}
+ .verdict p:last-child{margin-bottom:0}
+ .verdict b{color:var(--ink)}
+ .verdict .hl{color:var(--accent);font-weight:700}
+
+ .close{background:var(--surface);padding:88px 0}
+ .close h2{max-width:26ch}
+ .bridge{margin-top:24px;max-width:64ch;font-size:16px;color:var(--body)}
+ .bridge b{color:var(--accent)}
+ footer{padding:32px 0;border-top:1px solid var(--line);color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+ .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+ .reveal.in{opacity:1;transform:none}
+
+ @media (max-width:840px){
+ .vars,.grid2{grid-template-columns:1fr}
+ .caxis,.hiline-lab{margin-left:130px}
+ .row{grid-template-columns:130px 1fr}
+ }
+ @media (max-width:560px){
+ section{padding:60px 0}
+ .caxis,.hiline-lab{margin-left:0}
+ .row{grid-template-columns:1fr;gap:5px;padding:11px 0}
+ .row .lab{padding-right:0}
+ }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+ <div class="wrap">
+ <div class="kicker">传统 QA × AI · <b>独立深度分析</b></div>
+ <h1>QA 的每个环节，<br>AI 到底能<span class="hl">扎多深</span>？</h1>
+ <p class="sub">一次对质量保障学科的独立测绘——把传统 QA 的完整流水线摊开，逐个环节客观地量：AI 能承担多少、被什么挡住。这张地图不为任何产品服务，它只回答问题本身。</p>
+ <div class="headline">
+ <div class="k">0 / 13</div>
+ <p><b>没有任何一个环节能被 AI 无人化。</b>校准后的深度全部落在 15%–65% 区间，"高替代"这一档是空的。这个空档，本身就是最重要的结论。</p>
+ </div>
+ </div>
+</header>
+
+<!-- ============ 01 方法 ============ -->
+<section id="method">
+ <div class="wrap reveal">
+ <div class="eyebrow"><span class="sec-num">01</span> 这张地图怎么来的</div>
+ <h2>独立测绘：对任何实现无知，且刻意压制夸大</h2>
+ <p class="lede">要客观，就不能从"某个产品做了什么"倒推。所以这份分析由一组彼此独立、且完全不知道任何具体实现存在的评审者做出——他们只面对"这门学科的某个环节 + 当前 AI 的真实能力"。每一环的结论还额外过了一道专门纠正"高估 AI"的校准。</p>
+ <div class="method">
+ <span class="mc">覆盖 <b>13</b> 个 QA 环节</span>
+ <span class="mc">对实现 <b>零知晓</b></span>
+ <span class="mc"><b>独立校准</b>去夸大</span>
+ <span class="mc">深度 = <b>替代 / 增强 / 辅助 / 尚不能</b></span>
+ </div>
+ </div>
+</section>
+
+<!-- ============ 02 规律 ============ -->
+<section id="principle">
+ <div class="wrap reveal">
+ <div class="eyebrow"><span class="sec-num">02</span> 一条规律</div>
+ <h2>决定深度的，不是"离代码近不近"，是这三件事</h2>
+ <p class="lede">走遍整条流水线会发现，AI 扎得深不深，由三条结构性变量叠加决定——它们跟"技术含量高不高"无关，只跟"这段工作的判准在哪、要不要碰真实世界、谁担责"有关。</p>
+ <div class="vars">
+ <div class="v"><div class="n">变量 ①</div><h3>oracle 在哪</h3><p>"什么算对"是写在文本/代码里、能被确定性工具校验（AI 能深），还是藏在人的意图与组织风险偏好里（AI 触不到）。</p></div>
+ <div class="v"><div class="n">变量 ②</div><h3>要不要碰真实世界</h3><p>是否必须接触真实环境、真实流量、真实凭证、真实用户、真实生产信号。凡此皆封住 AI 的上限，与文本能力无关。</p></div>
+ <div class="v"><div class="n">变量 ③</div><h3>谁来担责</h3><p>终点是否是一个必须由人/组织签字、承担后果的决策——放行、接受风险、裁决冲突。担责无法转移给模型。</p></div>
+ </div>
+ <div class="formula">
+ AI 深度 &nbsp;∝&nbsp; <b class="up">可机械化 × oracle 可得 × 可硬信号验证</b><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 反比于 &nbsp; <b class="dn">真实世界访问 + 组织担责 + 隐性上下文</b>
+ </div>
+ </div>
+</section>
+
+<!-- ============ 03 深度地图 ============ -->
+<section id="map">
+ <div class="wrap reveal">
+ <div class="eyebrow"><span class="sec-num">03</span> 深度地图</div>
+ <h2>13 个环节，按 AI 能扎的深度排开</h2>
+ <p class="lede">横条是校准后 AI 能承担的工作量区间。注意那条红线——<b style="color:var(--none)">60% 的"高替代线"，没有任何一个环节跨过去</b>。</p>
+ <div class="legend">
+ <span><i class="sw s"></i>强增强（AI 能独立产出可用资产）</span>
+ <span><i class="sw a"></i>辅助（核心是判断与担责）</span>
+ <span><i class="sw n"></i>高替代线 60%</span>
+ </div>
+ <div class="chart">
+ <div class="caxis">
+ <span class="tick" style="left:0%">0</span>
+ <span class="tick" style="left:20%">20%</span>
+ <span class="tick" style="left:40%">40%</span>
+ <span class="tick" style="left:60%">60%</span>
+ <span class="tick" style="left:80%">80%</span>
+ <span class="tick" style="left:100%">100%</span>
+ </div>
+ <!-- rows -->
+ <div class="row"><div class="lab">测试设计<small>用例技术·数据</small></div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg s" style="left:45%;width:20%"><span>45–65</span></div></div></div>
+ <div class="row"><div class="lab">静态测试·代码评审</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg s" style="left:40%;width:20%"><span>40–60</span></div></div></div>
+ <div class="row"><div class="lab">测试报告·度量</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg s" style="left:40%;width:20%"><span>40–60</span></div></div></div>
+ <div class="row"><div class="lab">测试环境·数据</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg s" style="left:35%;width:20%"><span>35–55</span></div></div></div>
+ <div class="row"><div class="lab">回归测试</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg s" style="left:35%;width:15%"><span>35–50</span></div></div></div>
+ <div class="row"><div class="lab">缺陷管理</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg s" style="left:30%;width:20%"><span>30–50</span></div></div></div>
+ <div class="row"><div class="lab">功能测试执行</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg s" style="left:30%;width:15%"><span>30–45</span></div></div></div>
+ <div class="row"><div class="lab">需求质量·可测性</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg s" style="left:25%;width:15%"><span>25–40</span></div></div></div>
+ <div class="row"><div class="lab">线上质量·右移</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg s" style="left:25%;width:15%"><span>25–40</span></div></div></div>
+ <div class="row"><div class="lab">测试计划·策略</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg a" style="left:20%;width:20%"><span>20–40</span></div></div></div>
+ <div class="row"><div class="lab">非功能测试</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg a" style="left:20%;width:20%"><span>20–40</span></div></div></div>
+ <div class="row"><div class="lab">发布验收·上线准入</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg a" style="left:20%;width:10%"><span>20–30</span></div></div></div>
+ <div class="row"><div class="lab">测试过程改进</div><div class="track"><div class="gl" style="left:20%"></div><div class="gl" style="left:40%"></div><div class="gl hi" style="left:60%"></div><div class="gl" style="left:80%"></div><div class="seg a" style="left:15%;width:15%"><span>15–30</span></div></div></div>
+ <div class="hiline-lab">↑ 60% 高替代线 —— 全流程无一跨越</div>
+ <div class="chart-note"><b>横切所有环节还有一个"尚不能"的承重子任务：</b>每一环里"谁定义什么算对、谁签字放行、谁为后果负责"——它对 AI 完全封闭，是所有比例上限共同的天花板。</div>
+ </div>
+ </div>
+</section>
+
+<!-- ============ 04 反直觉发现 ============ -->
+<section id="surprises">
+ <div class="wrap reveal">
+ <div class="eyebrow"><span class="sec-num">04</span> 几个反直觉、但很关键的发现</div>
+ <h2>数字底下的真相，比排名更值得看</h2>
+ <div class="grid2">
+ <div class="card"><h3>深度 ≠ 离代码的远近</h3><p>偏文书的"报告与度量"排到前三，而 QA 核心动作"功能执行"只排中游。真正拉高深度的是<span class="eq">可枚举 / 可叙述</span>，不是"技术核心度"。</p></div>
+ <div class="card"><h3>很多高比例来自既有能力</h3><p>CI、覆盖率采集、静态引擎、BI 看板、监控异常检测，都是 AI 出现之前就有的确定性能力。LLM 的真实增量只是"解释与串联"，却容易被算进"AI 深度"而虚高。</p></div>
+ <div class="card"><h3>AI 可能是负价值来源</h3><p>似是而非的验收标准、错误的根因假设、把真实回归"自愈"掉的定位器——会在这个本该"抓错"的学科里，制造锚定效应与虚假安全感。</p></div>
+ <div class="card"><h3>一组"貌似等价"的陷阱</h3><p><span class="eq">覆盖量≠有效覆盖</span> <span class="eq">模板完整≠计划有效</span> <span class="eq">数字正确≠质量足够</span>。AI 极擅长产出前者，QA 的价值恰在后者。</p></div>
+ </div>
+ <div class="pull">AI 极擅长产出"看起来对"的东西——而 QA 这门学科，正是<span>判断什么才真的对</span>。</div>
+ </div>
+</section>
+
+<!-- ============ 05 诚实总判断 ============ -->
+<section id="verdict">
+ <div class="wrap reveal">
+ <div class="eyebrow"><span class="sec-num">05</span> 诚实的总判断</div>
+ <h2>AI 没有在自动化 QA，而是在压缩它的外围</h2>
+ <div class="verdict">
+ <p>综观 13 个环节，AI 压缩的是每一环"机械 / 生成 / 解释"的外围，几乎<b>原封不动地留下了每一环"判断与担责"的内核</b>。整个学科的重心，结构性地压在 AI 最薄的三处：<span class="hl">定义什么算对、接受多少残余风险、签字放行担责</span>——而这三处归人，是结构必然，不是暂时局限。</p>
+ <p>所以"人在环把关"不是过渡形态，是这门学科<b>可预见范围内的稳定形态</b>。</p>
+ <p>净效果是双向的：AI 让好的测试者更快、更广，角色从"生产测试资产"上移到"策展、复核、并为 AI 起草的资产担责"；但同等真实的是，疏于复核的团队会更快地把错误规模化。<b>改造的深度，最终取决于人是否守住了 oracle 与担责这条底线。</b></p>
+ </div>
+ </div>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section class="close reveal">
+ <div class="wrap">
+ <div class="eyebrow"><span class="sec-num">06</span> 这张地图有什么用</div>
+ <h2>它是一把尺，量任何团队的 QA 该往哪儿上 AI</h2>
+ <p class="bridge">它的价值不在于谁做了什么工具，而在于它给出了一个客观答案：<b>在质量保障的每一段，AI 值不值得投入、能扎多深、会被什么挡住。</b><br><br>拿这把尺去量一个具体的落地实现——它做到了地图上的哪几格、有没有漏掉更高杠杆的地方——是接下来单独一份材料要做的事。地图先立住，再谈落点。</p>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+ <span>传统 QA × AI · 独立深度地图（Track&nbsp;2）</span>
+ <span>不为产品服务 · 只回答问题</span>
+ </div>
+</footer>
+
+<script>
+ const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

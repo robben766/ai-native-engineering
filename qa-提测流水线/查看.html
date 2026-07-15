@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit 文档</title>
+<style>
+  :root{
+    --paper:#F1F4F7; --surface:#FFFFFF; --surface-2:#EDF1F5; --nav:#F7F9FB; --ink:#0F1721; --body:#33404C; --muted:#6A7480;
+    --line:#D8DEE5; --rail:#C4CCD4; --accent:#0C8F88; --accent-soft:rgba(12,143,136,.10);
+    --sans:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Hiragino Sans GB",sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --paper:#0B1118; --surface:#121B25; --surface-2:#18242F; --nav:#0E1620; --ink:#ECF1F6; --body:#B4BFCB; --muted:#75808C;
+    --line:#233140; --rail:#33424F; --accent:#2ED6C6; --accent-soft:rgba(46,214,198,.12);
+  }}
+  :root[data-theme="light"]{--paper:#F1F4F7;--surface:#FFFFFF;--surface-2:#EDF1F5;--nav:#F7F9FB;--ink:#0F1721;--body:#33404C;--muted:#6A7480;--line:#D8DEE5;--rail:#C4CCD4;--accent:#0C8F88;--accent-soft:rgba(12,143,136,.10)}
+  :root[data-theme="dark"]{--paper:#0B1118;--surface:#121B25;--surface-2:#18242F;--nav:#0E1620;--ink:#ECF1F6;--body:#B4BFCB;--muted:#75808C;--line:#233140;--rail:#33424F;--accent:#2ED6C6;--accent-soft:rgba(46,214,198,.12)}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--paper);color:var(--body);font-family:var(--sans);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;display:flex}
+  .side{width:270px;flex:0 0 270px;background:var(--nav);border-right:1px solid var(--line);height:100vh;overflow-y:auto;position:sticky;top:0;padding:22px 0 40px}
+  .side .brand{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding:0 20px 16px}
+  .side .grp{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:16px 20px 6px}
+  .side a{display:block;padding:6px 20px;font-size:13.5px;color:var(--body);text-decoration:none;border-left:2px solid transparent;line-height:1.4;cursor:pointer}
+  .side a:hover{background:var(--surface-2);color:var(--ink)}
+  .side a.active{color:var(--accent);border-left-color:var(--accent);background:var(--accent-soft);font-weight:600}
+  .side a.deck::after{content:" ▦";font-size:10px;color:var(--muted)}
+  .main{flex:1;min-width:0;height:100vh;overflow-y:auto;display:flex;flex-direction:column}
+  .top{position:sticky;top:0;z-index:5;background:var(--surface);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:11px 26px;flex:0 0 auto}
+  .top .path{font-family:var(--mono);font-size:12px;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .top .sp{margin-left:auto}
+  .top button{font-family:var(--mono);font-size:12px;color:var(--accent);background:none;border:1px solid var(--line);border-radius:6px;padding:5px 11px;cursor:pointer}
+  .top button:hover{border-color:var(--accent)}.top button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .menu-btn{display:none}
+  .body-area{flex:1;min-height:0;overflow-y:auto}
+  .wrap{max-width:840px;margin:0 auto;padding:38px 30px 100px}
+  iframe.deck{width:100%;height:100%;border:0;display:block}
+  .md h1{color:var(--ink);font-size:clamp(23px,3.6vw,31px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .md h2{color:var(--ink);font-size:20px;font-weight:800;margin:38px 0 10px;letter-spacing:-.01em;padding-top:14px;border-top:1px solid var(--line)}
+  .md h3{color:var(--ink);font-size:16.5px;font-weight:700;margin:24px 0 8px}
+  .md h4{color:var(--ink);font-size:14.5px;font-weight:700;margin:18px 0 6px}
+  .md p{margin:12px 0}
+  .md a{color:var(--accent);text-decoration:none}.md a:hover{text-decoration:underline}
+  .md b,.md strong{color:var(--ink);font-weight:700}
+  .md ul,.md ol{margin:12px 0;padding-left:24px}.md li{margin:5px 0}
+  .md code{font-family:var(--mono);font-size:.86em;background:var(--surface-2);padding:2px 6px;border-radius:4px;color:var(--ink)}
+  .md pre{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 18px;overflow-x:auto;line-height:1.6}
+  .md pre code{background:none;padding:0;font-size:13px;color:var(--ink)}
+  .md blockquote{margin:16px 0;padding:2px 18px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 6px 6px 0}
+  .md hr{border:none;border-top:1px dashed var(--line);margin:30px 0}
+  .md table{border-collapse:collapse;width:100%;margin:18px 0;font-size:13.5px;display:block;overflow-x:auto}
+  .md th,.md td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+  .md th{background:var(--surface-2);color:var(--ink);font-weight:700;font-family:var(--mono);font-size:12px;white-space:nowrap}
+  .md tr:nth-child(even) td{background:var(--surface-2)}
+  .md .mermaid{margin:22px 0;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px;overflow-x:auto}
+  .src{white-space:pre-wrap;font-family:var(--mono);font-size:13px;line-height:1.7;color:var(--body);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:20px}
+  .err{color:#C2504B;font-family:var(--mono);font-size:14px;padding:40px 0}
+  @media (max-width:760px){
+    .side{position:fixed;left:0;top:0;z-index:20;transform:translateX(-100%);transition:transform .2s;box-shadow:0 0 40px rgba(0,0,0,.2)}
+    .side.open{transform:translateX(0)}.menu-btn{display:inline-block}
+    body{display:block}.main{height:auto}
+  }
+</style>
+</head>
+<body>
+<nav class="side" id="side"><div class="brand">📘 Kit 文档</div><div id="nav"></div></nav>
+<div class="main">
+  <div class="top">
+    <button class="menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+    <span class="path" id="path"></span>
+    <span class="sp"></span>
+    <button id="srcBtn">源码</button>
+  </div>
+  <div class="body-area" id="area"><div class="wrap"><div class="md" id="out"></div></div></div>
+</div>
+
+<script src="_viewer/marked.min.js"></script>
+<script>
+  // 文档清单：.md 走渲染；.html 走 iframe 嵌入（整合在一起）
+  const DOCS = [
+    ["总览", [
+      ["README.md", "总览 · 这是什么"],
+      ["落地手册.md", "落地手册"],
+    ]],
+    ["方法论", [
+      ["01-方法论/track-2-突破版/1-对外框架/index.html", "独立深度地图"],
+      ["01-方法论/研发周期框架.md", "研发周期框架"],
+    ]],
+    ["引擎", [
+      ["02-引擎/README.md", "架构说明"],
+      ["02-引擎/commands/test-intake.md", "命令 · test-intake"],
+      ["02-引擎/skills/mr-change-extract/SKILL.md", "skill · 变更提取"],
+      ["02-引擎/skills/testcase-generate/SKILL.md", "skill · 用例生成"],
+      ["02-引擎/skills/code-review-gate/SKILL.md", "skill · 评审门禁"],
+      ["02-引擎/skills/e2e-verify/SKILL.md", "skill · E2E 验证"],
+      ["02-引擎/skills/qa-metrics/SKILL.md", "skill · 度量"],
+    ]],
+    ["经验层模板", [
+      ["03-经验层-模板/README.md", "经验层说明"],
+      ["03-经验层-模板/review-rules.md", "评审清单 + 门禁"],
+      ["03-经验层-模板/oracles.md", "判准库"],
+      ["03-经验层-模板/platform.md", "平台级经验"],
+      ["03-经验层-模板/e2e-patterns.md", "E2E 模式"],
+      ["03-经验层-模板/production-bug-patterns.md", "生产模式萃取法"],
+      ["03-经验层-模板/qa-testpoint-playbook.md", "测试点手册"],
+      ["03-经验层-模板/toolchain.template.md", "工具适配层模板"],
+      ["03-经验层-模板/projects/_template.md", "单仓经验模板"],
+    ]],
+    ["工具", [
+      ["04-工具/度量口径.md", "度量口径与 schema"],
+    ]],
+  ];
+
+  marked.setOptions({ gfm:true, breaks:false });
+  const nav=document.getElementById("nav"), pathEl=document.getElementById("path"),
+        srcBtn=document.getElementById("srcBtn"), side=document.getElementById("side"),
+        area=document.getElementById("area");
+  let curText="", curPath="", showSrc=false;
+
+  for(const [group,items] of DOCS){
+    const g=document.createElement("div"); g.className="grp"; g.textContent=group; nav.appendChild(g);
+    for(const [val,label] of items){
+      const a=document.createElement("a"); a.dataset.f=val; a.textContent=label;
+      if(val.endsWith(".html")) a.className="deck";
+      a.addEventListener("click",e=>{e.preventDefault();go(val);}); nav.appendChild(a);
+    }
+  }
+  const markActive=p=>nav.querySelectorAll("a").forEach(a=>a.classList.toggle("active",a.dataset.f===p));
+  const qf=()=>new URLSearchParams(location.search).get("f");
+  const resolve=(from,href)=>{ const base=from.split("/").slice(0,-1);
+    const st=[]; for(const s of ((base.join("/")?base.join("/")+"/":"")+href).split("/")){ if(s==="..")st.pop(); else if(s!=="."&&s!=="")st.push(s);} return st.join("/"); };
+
+  function paintMd(){
+    const target=document.getElementById("out"); if(!target) return;
+    if(showSrc){ srcBtn.classList.add("on"); srcBtn.textContent="预览";
+      const pre=document.createElement("div"); pre.className="src"; pre.textContent=curText;
+      target.innerHTML=""; target.appendChild(pre); return; }
+    srcBtn.classList.remove("on"); srcBtn.textContent="源码";
+    target.innerHTML=marked.parse(curText);
+    target.querySelectorAll('a[href$=".md"]').forEach(a=>{ const h=a.getAttribute("href");
+      if(/^https?:/.test(h))return; const t=resolve(curPath,h); a.addEventListener("click",e=>{e.preventDefault();go(t);}); });
+    target.querySelectorAll('img[src]').forEach(im=>{ const s=im.getAttribute("src");
+      if(/^https?:|^data:/.test(s))return; im.setAttribute("src", encodeURI(resolve(curPath,s))); });
+  }
+
+  async function go(p){
+    curPath=p; pathEl.textContent=p; markActive(p); side.classList.remove("open");
+    history.replaceState(null,"","查看.html?f="+encodeURIComponent(p));
+    document.title=(p.split("/").pop())+" · Kit 文档";
+    if(p.endsWith(".html")){ srcBtn.style.display="none";
+      area.innerHTML='<iframe class="deck" src="'+encodeURI(p)+'"></iframe>'; return; }
+    srcBtn.style.display="";
+    area.innerHTML='<div class="wrap"><div class="md" id="out"></div></div>';
+    const target=document.getElementById("out");
+    target.innerHTML='<p style="color:var(--muted);font-family:var(--mono);font-size:13px">加载中…</p>';
+    try{
+      const r=await fetch(encodeURI(p),{cache:"no-cache"}); if(!r.ok) throw new Error(r.status+" "+r.statusText);
+      curText=new TextDecoder("utf-8").decode(await r.arrayBuffer()); paintMd();
+    }catch(e){ target.innerHTML='<p class="err">读取失败：'+p+'<br>'+e.message+'</p>'; }
+  }
+
+  srcBtn.addEventListener("click",()=>{ showSrc=!showSrc; paintMd(); });
+  document.getElementById("menuBtn").addEventListener("click",()=>side.classList.toggle("open"));
+  window.addEventListener("popstate",()=>{ const f=qf(); if(f) go(f); });
+  go(qf() || "README.md");
+</script>
+</body>
+</html>

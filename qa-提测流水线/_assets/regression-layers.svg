@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="1000" height="400">
+  <style> text{font-family:"Helvetica Neue",Helvetica,Arial,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;} </style>
+  <defs>
+    <marker id="at" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#0C8F88"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#C2504B"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#4A6FA5"/></marker>
+    <marker id="am" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#6A7480"/></marker>
+  </defs>
+  <rect width="1000" height="400" fill="#FFFFFF"/>
+  <text x="500.0" y="40" text-anchor="middle" fill="#0F1721" font-size="18" font-weight="800">回归是分层的 · 三层各司其职</text>
+  <line x1="70" y1="92" x2="930" y2="92" stroke="#D8DEE5" stroke-width="2" marker-end="url(#am)"/>
+  <circle cx="190" cy="92" r="6" fill="#0C8F88"/>
+  <text x="190" y="76" text-anchor="middle" fill="#0F1721" font-size="14" font-weight="800">提测</text>
+  <circle cx="500" cy="92" r="6" fill="#0C8F88"/>
+  <text x="500" y="76" text-anchor="middle" fill="#0F1721" font-size="14" font-weight="800">上线</text>
+  <circle cx="810" cy="92" r="6" fill="#0C8F88"/>
+  <text x="810" y="76" text-anchor="middle" fill="#0F1721" font-size="14" font-weight="800">上线后</text>
+  <rect x="60.0" y="150" width="280" height="170" rx="12" fill="#FFFFFF" stroke="#9BD3CE" stroke-width="1.6"/>
+  <rect x="60.0" y="150" width="280" height="42" rx="12" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="0"/>
+  <rect x="60.0" y="170" width="280" height="22" fill="#EAF6F5"/>
+  <text x="200.0" y="178" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">提测前回归</text>
+  <text x="200.0" y="228" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="600">变更影响面驱动的</text>
+  <text x="200.0" y="256" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="600">范围回归</text>
+  <text x="200.0" y="284" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="600">（引擎内已有）</text>
+  <rect x="360.0" y="150" width="280" height="170" rx="12" fill="#FFFFFF" stroke="#9BD3CE" stroke-width="1.6"/>
+  <rect x="360.0" y="150" width="280" height="42" rx="12" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="0"/>
+  <rect x="360.0" y="170" width="280" height="22" fill="#EAF6F5"/>
+  <text x="500.0" y="178" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">上线前回归</text>
+  <text x="500.0" y="228" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="600">接口回归集（高频模块）</text>
+  <text x="500.0" y="256" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="600">+ 关键业务链路</text>
+  <text x="500.0" y="284" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="600">E2E 冒烟</text>
+  <rect x="660.0" y="150" width="280" height="170" rx="12" fill="#FFFFFF" stroke="#9BD3CE" stroke-width="1.6"/>
+  <rect x="660.0" y="150" width="280" height="42" rx="12" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="0"/>
+  <rect x="660.0" y="170" width="280" height="22" fill="#EAF6F5"/>
+  <text x="800.0" y="178" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">上线后回归</text>
+  <text x="800.0" y="228" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="600">生产只读 / 幂等探针</text>
+  <text x="800.0" y="256" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="600">跑关键接口</text>
+  <text x="800.0" y="284" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="600">+ 逃逸率复测</text>
+  <text x="500.0" y="362" text-anchor="middle" fill="#6A7480" font-size="13" font-weight="600">避免全量回归拖垮节奏，又不漏关键链路</text>
+</svg>
