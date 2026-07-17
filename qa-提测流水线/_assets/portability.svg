@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 600" width="1060" height="600">
+  <style> text{font-family:"Helvetica Neue",Helvetica,Arial,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;} </style>
+  <defs>
+    <marker id="at" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#0C8F88"/></marker>
+    <marker id="am" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#6A7480"/></marker>
+  </defs>
+  <rect width="1060" height="600" fill="#FFFFFF"/>
+  <text x="530.0" y="40" text-anchor="middle" fill="#0F1721" font-size="19" font-weight="800">单一真源 · 多工具薄适配</text>
+  <text x="530.0" y="66" text-anchor="middle" fill="#6A7480" font-size="13" font-weight="600">判准库不动，换工具只换薄壳</text>
+  <rect x="40" y="110" width="260" height="300" rx="14" fill="#EAF6F5" stroke="#0C8F88" stroke-width="2"/>
+  <text x="170.0" y="144" text-anchor="middle" fill="#0C8F88" font-size="16" font-weight="800">唯一真源</text>
+  <text x="170.0" y="164" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">tool-agnostic</text>
+  <rect x="58" y="190" width="224" height="58" rx="9" fill="#FFFFFF" stroke="#9BD3CE" stroke-width="1.5"/>
+  <text x="170.0" y="214" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="800">判准库 / 经验层</text>
+  <text x="170.0" y="233" text-anchor="middle" fill="#6A7480" font-size="10.5" font-weight="600">什么算对 · 规则 · 缺陷模式</text>
+  <rect x="58" y="260" width="224" height="58" rx="9" fill="#FFFFFF" stroke="#9BD3CE" stroke-width="1.5"/>
+  <text x="170.0" y="284" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="800">工具无关 SOP</text>
+  <text x="170.0" y="303" text-anchor="middle" fill="#6A7480" font-size="10.5" font-weight="600">七环编排说明书（纯 prose）</text>
+  <rect x="58" y="330" width="224" height="58" rx="9" fill="#FFFFFF" stroke="#9BD3CE" stroke-width="1.5"/>
+  <text x="170.0" y="354" text-anchor="middle" fill="#0F1721" font-size="13.5" font-weight="800">skill 方法</text>
+  <text x="170.0" y="373" text-anchor="middle" fill="#6A7480" font-size="10.5" font-weight="600">每阶段的做法（prose 指令）</text>
+  <rect x="360" y="110" width="250" height="300" rx="14" fill="#FBFDFD" stroke="#6A7480" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="485.0" y="140" text-anchor="middle" fill="#0F1721" font-size="15" font-weight="800">适配契约</text>
+  <text x="485.0" y="158" text-anchor="middle" fill="#6A7480" font-size="10.5" font-weight="600">每个壳要映射这 5 件事</text>
+  <text x="382" y="184" text-anchor="start" fill="#0F1721" font-size="12.5" font-weight="600">① 触发 / 命令</text>
+  <text x="382" y="226" text-anchor="start" fill="#0F1721" font-size="12.5" font-weight="600">② 阶段编排（串流程）</text>
+  <text x="382" y="268" text-anchor="start" fill="#0F1721" font-size="12.5" font-weight="600">③ 并行 → 可退化为串行</text>
+  <text x="382" y="310" text-anchor="start" fill="#0F1721" font-size="12.5" font-weight="600">④ 工具调用（MCP 或等价）</text>
+  <text x="382" y="352" text-anchor="start" fill="#0F1721" font-size="12.5" font-weight="600">⑤ 人工闸口（确认/覆盖）</text>
+  <line x1="300" y1="260" x2="358" y2="260" stroke="#0C8F88" stroke-width="1.8" marker-end="url(#at)"/>
+  <rect x="680" y="110" width="340" height="62" rx="11" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="1.6"/>
+  <text x="698" y="137" text-anchor="start" fill="#0F1721" font-size="14.5" font-weight="800">Claude Code</text>
+  <text x="698" y="156" text-anchor="start" fill="#6A7480" font-size="11" font-weight="600">command · skill · workflow · MCP</text>
+  <rect x="916" y="128" width="90" height="26" rx="13" fill="#0C8F88" stroke="#0C8F88" stroke-width="0"/>
+  <text x="961.0" y="145" text-anchor="middle" fill="#FFFFFF" font-size="11.5" font-weight="800">✓ 已就绪</text>
+  <line x1="612" y1="260" x2="676" y2="141.0" stroke="#6A7480" stroke-width="1.4" marker-end="url(#am)"/>
+  <rect x="680" y="188" width="340" height="62" rx="11" fill="#FAF2E2" stroke="#E6CE9C" stroke-width="1.6"/>
+  <text x="698" y="215" text-anchor="start" fill="#0F1721" font-size="14.5" font-weight="800">Codex</text>
+  <text x="698" y="234" text-anchor="start" fill="#6A7480" font-size="11" font-weight="600">AGENTS.md · skill · MCP</text>
+  <rect x="916" y="206" width="90" height="26" rx="13" fill="#C08A2E" stroke="#C08A2E" stroke-width="0"/>
+  <text x="961.0" y="223" text-anchor="middle" fill="#FFFFFF" font-size="11.5" font-weight="800">◑ 本次新增</text>
+  <line x1="612" y1="260" x2="676" y2="219.0" stroke="#6A7480" stroke-width="1.4" marker-end="url(#am)"/>
+  <rect x="680" y="266" width="340" height="62" rx="11" fill="#FFFFFF" stroke="#D8DEE5" stroke-width="1.6"/>
+  <text x="698" y="293" text-anchor="start" fill="#0F1721" font-size="14.5" font-weight="800">Gemini</text>
+  <text x="698" y="312" text-anchor="start" fill="#6A7480" font-size="11" font-weight="600">GEMINI.md · skill · MCP</text>
+  <rect x="916" y="284" width="90" height="26" rx="13" fill="#6A7480" stroke="#6A7480" stroke-width="0"/>
+  <text x="961.0" y="301" text-anchor="middle" fill="#FFFFFF" font-size="11.5" font-weight="800">○ 可扩展</text>
+  <line x1="612" y1="260" x2="676" y2="297.0" stroke="#6A7480" stroke-width="1.4" marker-end="url(#am)"/>
+  <rect x="680" y="344" width="340" height="62" rx="11" fill="#FFFFFF" stroke="#D8DEE5" stroke-width="1.6"/>
+  <text x="698" y="371" text-anchor="start" fill="#0F1721" font-size="14.5" font-weight="800">Trae / 智谱 / …</text>
+  <text x="698" y="390" text-anchor="start" fill="#6A7480" font-size="11" font-weight="600">各家 rules · skill(标准)</text>
+  <rect x="916" y="362" width="90" height="26" rx="13" fill="#6A7480" stroke="#6A7480" stroke-width="0"/>
+  <text x="961.0" y="379" text-anchor="middle" fill="#FFFFFF" font-size="11.5" font-weight="800">○ 可扩展</text>
+  <line x1="612" y1="260" x2="676" y2="375.0" stroke="#6A7480" stroke-width="1.4" marker-end="url(#am)"/>
+  <text x="530.0" y="560" text-anchor="middle" fill="#6A7480" font-size="12.5" font-weight="600">内核（判准库 + SOP）是唯一真源；适配壳很薄，谁家工具强就用谁的驱动器</text>
+</svg>

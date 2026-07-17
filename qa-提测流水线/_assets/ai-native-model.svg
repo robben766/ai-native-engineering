@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+  <style> text{font-family:"Helvetica Neue",Helvetica,Arial,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;} </style>
+  <defs>
+    <marker id="at" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#0C8F88"/></marker>
+    <marker id="ab" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#4A6FA5"/></marker>
+    <marker id="am" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#6A7480"/></marker>
+    <marker id="ar" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#C2504B"/></marker>
+  </defs>
+  <rect width="1000" height="600" fill="#FFFFFF"/>
+  <text x="500.0" y="40" text-anchor="middle" fill="#0F1721" font-size="19" font-weight="800">方向二 · AI 原生 QA 的运行模型</text>
+  <text x="500.0" y="66" text-anchor="middle" fill="#6A7480" font-size="13" font-weight="600">当读代码/生成用例/跑验证趋于免费，围绕『判准 + 判断』重新设计</text>
+  <rect x="380.0" y="252.0" width="240" height="96" rx="14" fill="#EAF6F5" stroke="#0C8F88" stroke-width="2.2"/>
+  <text x="500" y="286" text-anchor="middle" fill="#0C8F88" font-size="20" font-weight="800">判准库</text>
+  <text x="500" y="308" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="600">什么算对 · 已验证 · 可增长</text>
+  <text x="500" y="328" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">= dev-agent 的 spec / 门禁的依据</text>
+  <rect x="350" y="96" width="300" height="60" rx="12" fill="#FFFFFF" stroke="#0F1721" stroke-width="1.6"/>
+  <circle cx="382" cy="117" r="7" fill="none" stroke="#0F1721" stroke-width="1.8"/>  <path d="M371,138 Q382,124 393,138" fill="none" stroke="#0F1721" stroke-width="1.8"/>
+  <text x="405" y="118" text-anchor="start" fill="#0F1721" font-size="13.5" font-weight="800">人 = 判准工程师 + 担责者</text>
+  <text x="405" y="138" text-anchor="start" fill="#6A7480" font-size="11" font-weight="600">编判准 · curate · go/no-go 签字</text>
+  <path d="M500,156 V250.0" fill="none" stroke="#0F1721" stroke-width="1.7" marker-end="url(#at)"/>
+  <text x="508" y="190" text-anchor="start" fill="#6A7480" font-size="10.5" font-weight="600">注入 / 拥有</text>
+  <rect x="70" y="250" width="210" height="100" rx="12" fill="#FBFDFD" stroke="#B9CBE0" stroke-width="1.5"/>
+  <text x="175" y="278" text-anchor="middle" fill="#4A6FA5" font-size="15" font-weight="800">dev-agent</text>
+  <text x="175" y="300" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="600">生成代码</text>
+  <text x="175" y="320" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="600">→ 对判准自检 → 不过就改</text>
+  <text x="175" y="338" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">（生成即达标）</text>
+  <path d="M280,285 H376.0" fill="none" stroke="#4A6FA5" stroke-width="1.7" marker-end="url(#ab)"/>
+  <text x="350" y="277" text-anchor="middle" fill="#4A6FA5" font-size="11" font-weight="600">读判准</text>
+  <path d="M376.0,322 H282" fill="none" stroke="#4A6FA5" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ab)"/>
+  <text x="352" y="338" text-anchor="middle" fill="#4A6FA5" font-size="11" font-weight="600">新判准回流</text>
+  <rect x="720" y="250" width="210" height="100" rx="12" fill="#FFFFFF" stroke="#0C8F88" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="825" y="278" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">持续验证</text>
+  <text x="825" y="300" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="600">每次改动即触发</text>
+  <text x="825" y="320" text-anchor="middle" fill="#0F1721" font-size="12" font-weight="600">驱动环境 · 断言 · 留证</text>
+  <text x="825" y="338" text-anchor="middle" fill="#6A7480" font-size="11" font-weight="600">（无独立提测时点）</text>
+  <path d="M624.0,300 H718" fill="none" stroke="#0C8F88" stroke-width="1.7" marker-end="url(#at)"/>
+  <text x="660" y="292" text-anchor="middle" fill="#0C8F88" font-size="11" font-weight="600">对判准跑</text>
+  <rect x="310" y="440" width="380" height="64" rx="12" fill="#EAF6F5" stroke="#9BD3CE" stroke-width="1.5"/>
+  <text x="500" y="466" text-anchor="middle" fill="#0C8F88" font-size="15" font-weight="800">度量：判准覆盖率 × agent 遵守度</text>
+  <text x="500" y="488" text-anchor="middle" fill="#6A7480" font-size="11.5" font-weight="600">系统的正确性有多少被编码成可消费的判准</text>
+  <path d="M500,350.0 V438" fill="none" stroke="#0C8F88" stroke-width="1.7" marker-end="url(#at)"/>
+  <text x="500" y="540" text-anchor="middle" fill="#6A7480" font-size="12.5" font-weight="600">提测阶段溶解 · dev/QA 交接消失 · 测试执行不再靠堆人 · 判准库是复利的护城河</text>
+</svg>

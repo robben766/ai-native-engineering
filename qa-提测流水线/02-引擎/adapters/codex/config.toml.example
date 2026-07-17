@@ -1,0 +1,33 @@
+# Codex MCP 配置样例 —— 提测验证流水线
+# 拷进 ~/.codex/config.toml（用户级）或项目 .codex/config.toml（项目级，需信任该项目）
+# 把下面三个 MCP 换成你项目实际用的工作项系统 / 代码平台 / 浏览器
+#
+# 语法（已核对 Codex 官方 config-reference）：
+#   [mcp_servers.<名字>]
+#   command = "<启动命令>"
+#   args    = ["<参数>", ...]
+#   env     = { KEY = "value" }        # 可选：转发给 MCP 进程的环境变量
+
+# ── ① 工作项系统（TAPD / Jira / 禅道 / GitHub Issues …）──
+# 用于：查工作项、发评论、写用例、关联用例
+[mcp_servers.workitem]
+command = "npx"
+args    = ["-y", "<your-workitem-mcp-package>"]
+env     = { API_TOKEN = "<在此填 token 或用外部注入>" }
+
+# ── ② 代码平台（GitLab / GitHub / Gitee …）──
+# 用于：取 MR/PR 变更、分支对比
+[mcp_servers.codehost]
+command = "npx"
+args    = ["-y", "<your-codehost-mcp-package>"]
+env     = { TOKEN = "<在此填 token>" }
+
+# ── ③ 浏览器自动化（E2E 阶段）──
+# Playwright 官方 MCP（这个是真实存在的包）
+[mcp_servers.playwright]
+command = "npx"
+args    = ["-y", "@playwright/mcp@latest"]
+
+# 提示：
+# - 只有工作项系统与代码平台是必需；不跑 E2E 可先不配 playwright。
+# - token 建议用外部环境变量注入，别硬写进版本库。
